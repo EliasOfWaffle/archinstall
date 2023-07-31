@@ -83,7 +83,7 @@ def ask_user_questions():
 
 	# Ask or Call the helper function that asks the user to optionally configure a network.
 	global_menu.enable('network_config')
-
+	 
 	global_menu.enable('firewall_config')
 
 	global_menu.enable('timezone')
@@ -168,7 +168,7 @@ def perform_installation(mountpoint: Path):
 				archinstall.arguments.get('profile_config', None)
 			)
 
-		firewall_config: Optional[AudioConfiguration] = archinstall.arguments.get('firewall_config', None)
+		firewall_config: Optional[FirewallConfiguration] = archinstall.arguments.get('firewall_config', None)
 		if firewall_config:
 			firewall_config.install_firewall_config(installation)
 		else:
