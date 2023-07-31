@@ -438,8 +438,8 @@ class GlobalMenu(AbstractMenu):
 
 	def _select_firewall(
 		self,
-		current: Optional[AudioConfiguration] = None
-	) -> Optional[AudioConfiguration]:
+		current: Optional[FirewallConfiguration] = None
+	) -> Optional[FirewallConfiguration]:
 		selection = ask_for_firewall_selection(current)
 		return selection
 
