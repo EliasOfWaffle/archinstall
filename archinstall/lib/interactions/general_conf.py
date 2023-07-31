@@ -85,6 +85,34 @@ def ask_for_audio_selection(
 
 	return None
 
+def ask_for_firewall_selection(
+	current: Optional[FirewallConfiguration] = None
+) -> Optional[FirewallConfiguration]:
+	choices = [
+		Firewall.Iptables.name,
+		Firewall.Nftables.name,
+		Firewall.no_firewall_text()
+	]
+
+	preset = current.firewall.name if current else None
+
+	choice = Menu(
+		_('Choose an Firewall'),
+		choices,
+		preset_values=preset
+	).run()
+
+	match choice.type_:
+		case MenuSelectionType.Skip: return current
+		case MenuSelectionType.Selection:
+			value = choice.single_value
+			if value == Firewall.no_firewall_text():
+				return None
+			else:
+				return FirewallConfiguration(Firewall[value])
+
+	return None
+
 
 def select_language(preset: Optional[str] = None) -> Optional[str]:
 	"""

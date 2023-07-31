@@ -20,6 +20,7 @@ from .interactions import add_number_of_parrallel_downloads
 from .interactions import ask_additional_packages_to_install
 from .interactions import ask_for_additional_users
 from .interactions import ask_for_audio_selection
+from .interactions import ask_for_firewall_selection
 from .interactions import ask_for_bootloader
 from .interactions import ask_for_swap
 from .interactions import ask_hostname
@@ -433,6 +434,13 @@ class GlobalMenu(AbstractMenu):
 		current: Optional[AudioConfiguration] = None
 	) -> Optional[AudioConfiguration]:
 		selection = ask_for_audio_selection(current)
+		return selection
+
+	def _select_firewall(
+		self,
+		current: Optional[AudioConfiguration] = None
+	) -> Optional[AudioConfiguration]:
+		selection = ask_for_firewall_selection(current)
 		return selection
 
 	def _display_audio(self, current: Optional[AudioConfiguration]) -> str:
