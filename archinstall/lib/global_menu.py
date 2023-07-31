@@ -443,6 +443,12 @@ class GlobalMenu(AbstractMenu):
 		selection = ask_for_firewall_selection(current)
 		return selection
 
+	def _display_firewall(self, current: Optional[FirewallConfiguration]) -> str:
+		if not current:
+			return Firewall.no_audio_text()
+		else:
+			return current.firewall.name
+
 	def _display_audio(self, current: Optional[AudioConfiguration]) -> str:
 		if not current:
 			return Audio.no_audio_text()
