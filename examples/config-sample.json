@@ -3,6 +3,7 @@
     "additional-repositories": [],
     "archinstall-language": "English",
     "audio_config": {"audio": "pipewire"},
+    "firewall_config": {"audio": "iptables"},
     "bootloader": "Systemd-boot",
     "debug": false,
     "disk_config": {

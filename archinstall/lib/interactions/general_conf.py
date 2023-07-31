@@ -6,6 +6,7 @@ from typing import List, Any, Optional, TYPE_CHECKING
 from ..locale import list_timezones, list_keyboard_languages
 from ..menu import MenuSelectionType, Menu, TextInput
 from ..models.audio_configuration import Audio, AudioConfiguration
+from ..models.firewall_configuration import Firewall, FirewallConfiguration
 from ..output import warn
 from ..packages.packages import validate_package_list
 from ..storage import storage

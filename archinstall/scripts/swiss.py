@@ -95,7 +95,7 @@ class SwissMainMenu(GlobalMenu):
 				options_list = [
 					'mirror_config', 'disk_config',
 					'disk_encryption', 'swap', 'bootloader', 'hostname', '!root-password',
-					'!users', 'profile_config', 'audio_config', 'kernels', 'packages', 'additional-repositories', 'network_config',
+					'!users', 'profile_config', 'audio_config', 'kernels', 'packages', 'additional-repositories', 'network_config','firewall_config',
 					'timezone', 'ntp'
 				]
 
@@ -110,7 +110,7 @@ class SwissMainMenu(GlobalMenu):
 				options_list = [
 					'mirror_config','bootloader', 'hostname',
 					'!root-password', '!users', 'profile_config', 'audio_config', 'kernels',
-					'packages', 'additional-repositories', 'network_config', 'timezone', 'ntp'
+					'packages', 'additional-repositories', 'network_config','firewall_config', 'timezone', 'ntp'
 				]
 
 				mandatory_list = ['hostname']
@@ -229,6 +229,12 @@ def perform_installation(mountpoint: Path, exec_mode: ExecutionMode):
 					installation,
 					archinstall.arguments.get('profile_config', None)
 				)
+			
+			firewall_config: Optional[FirewallConfiguration] = archinstall.arguments.get('firewall_config', None)
+			if firewall_config:
+				firewall_config.install_firewall_config(installation)
+			else:
+				info("No Firewall will be installed")
 
 			if archinstall.arguments.get('packages', None) and archinstall.arguments.get('packages', None)[0] != '':
 				installation.add_additional_packages(archinstall.arguments.get('packages', []))

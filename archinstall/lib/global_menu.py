@@ -10,6 +10,7 @@ from .mirrors import MirrorConfiguration, MirrorMenu
 from .models import NetworkConfiguration, NicType
 from .models.bootloader import Bootloader
 from .models.audio_configuration import Audio, AudioConfiguration
+from .models.firewall_configuration import Firewall, FirewallConfiguration
 from .models.users import User
 from .output import FormattedOutput
 from .profile.profile_menu import ProfileConfiguration
@@ -116,6 +117,12 @@ class GlobalMenu(AbstractMenu):
 				lambda preset: self._select_audio(preset),
 				display_func=lambda x: self._display_audio(x)
 			)
+		self._menu_options['firewall_config'] = \
+			Selector(
+				_('Firewall'),
+				lambda preset: self._select_firewall(preset),
+				display_func=lambda x: self._display_firewall(x)
+			)					
 		self._menu_options['parallel downloads'] = \
 			Selector(
 				_('Parallel Downloads'),
