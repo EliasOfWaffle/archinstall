@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any, TYPE_CHECKING, Dict
 
+from ..hardware import SysInfo
 from ..output import info
-
 
 if TYPE_CHECKING:
 	_: Any
@@ -11,16 +11,16 @@ if TYPE_CHECKING:
 
 @dataclass
 class Firewall(Enum):
-	IPtables = 'iptables'
+	Iptables = 'iptables'
 	Nftables = 'nftables'
 
 	@staticmethod
-	def no_firewall_text() -> str:
+	def no_audio_text() -> str:
 		return str(_('No Firewall'))
 
 
 @dataclass
-class FirewallConfiguration:
+class FirewalllConfiguration:
 	firewall: Firewall
 
 	def __dump__(self) -> Dict[str, Any]:
@@ -31,17 +31,17 @@ class FirewallConfiguration:
 	@staticmethod
 	def parse_arg(arg: Dict[str, Any]) -> 'FirewallConfiguration':
 		return FirewallConfiguration(
-			Firewall(arg['firewall'])
+			Audio(arg['firewall'])
 		)
 
-	def install_firewall_config(
+	def install_audio_config(
 		self,
 		installation: Any
 	):
-		info(f'Installing Firewall: {self.firewall.name}')
+		info(f'Installing Firewall backend/frontend: {self.audio.name}')
 
 		match self.firewall:
-		 case Firewall.IPtables:
-              installation.add_additional_packages("iptables ufw ufw-extras")
-		 case Firewall.Nftables:
-		      installation.add_additional_packages("nftables firewalld")
+			case Firewall.Iptables:
+				installation.add_additional_packages("iptables ufw ufw-extras")
+			case Firewall.Nftables:
+				installation.add_additional_packages("nftables firewalld")
