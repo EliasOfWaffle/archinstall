@@ -10,6 +10,7 @@ from archinstall.lib import models
 from archinstall.lib import disk
 from archinstall.lib import locale
 from archinstall.lib.models import AudioConfiguration
+from archinstall.lib.models import FirewallConfiguration
 from archinstall.lib.networking import check_mirror_reachable
 from archinstall.lib.profile.profiles_handler import profile_handler
 from archinstall.lib import menu
@@ -96,7 +97,7 @@ class SwissMainMenu(GlobalMenu):
 					'mirror_config', 'disk_config',
 					'disk_encryption', 'swap', 'bootloader', 'hostname', '!root-password',
 					'!users', 'profile_config', 'audio_config', 'kernels', 'packages', 'additional-repositories', 'network_config', 'firewall_config',
-					'timezone', 'ntp'
+					 'timezone', 'ntp'
 				]
 
 				if archinstall.arguments.get('advanced', False):
