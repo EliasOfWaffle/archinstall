@@ -20,7 +20,7 @@ class Firewall(Enum):
 
 
 @dataclass
-class FirewalllConfiguration:
+class FirewallConfiguration:
 	firewall: Firewall
 
 	def __dump__(self) -> Dict[str, Any]:
