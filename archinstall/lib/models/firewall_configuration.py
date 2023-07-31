@@ -15,7 +15,7 @@ class Firewall(Enum):
 	Nftables = 'nftables'
 
 	@staticmethod
-	def no_audio_text() -> str:
+	def no_firewall_text() -> str:
 		return str(_('No Firewall'))
 
 
@@ -31,14 +31,14 @@ class FirewalllConfiguration:
 	@staticmethod
 	def parse_arg(arg: Dict[str, Any]) -> 'FirewallConfiguration':
 		return FirewallConfiguration(
-			Audio(arg['firewall'])
+			Firewall(arg['firewall'])
 		)
 
-	def install_audio_config(
+	def install_firewall_config(
 		self,
 		installation: Any
 	):
-		info(f'Installing Firewall backend/frontend: {self.audio.name}')
+		info(f'Installing Firewall backend/frontend: {self.firewall.name}')
 
 		match self.firewall:
 			case Firewall.Iptables:
