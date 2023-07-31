@@ -13,6 +13,7 @@ from archinstall.lib.installer import Installer
 from archinstall.lib.menu import Menu
 from archinstall.lib.mirrors import use_mirrors, add_custom_mirrors
 from archinstall.lib.models import AudioConfiguration
+from archinstall.lib.models import FirewallConfiguration
 from archinstall.lib.models.bootloader import Bootloader
 from archinstall.lib.models.network_configuration import NetworkConfiguration
 from archinstall.lib.networking import check_mirror_reachable
