@@ -43,5 +43,5 @@ class FirewallConfiguration:
 		match self.firewall:
 		 case Firewall.IPtables:
               installation.add_additional_packages("iptables ufw ufw-extras")
-		 case Audio.Nftables:
+		 case Firewall.Nftables:
 		      installation.add_additional_packages("nftables firewalld")

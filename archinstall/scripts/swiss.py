@@ -95,7 +95,7 @@ class SwissMainMenu(GlobalMenu):
 				options_list = [
 					'mirror_config', 'disk_config',
 					'disk_encryption', 'swap', 'bootloader', 'hostname', '!root-password',
-					'!users', 'profile_config', 'audio_config', 'kernels', 'packages', 'additional-repositories', 'network_config','firewall_config',
+					'!users', 'profile_config', 'audio_config', 'kernels', 'packages', 'additional-repositories', 'network_config', 'firewall_config',
 					'timezone', 'ntp'
 				]
 
@@ -110,7 +110,7 @@ class SwissMainMenu(GlobalMenu):
 				options_list = [
 					'mirror_config','bootloader', 'hostname',
 					'!root-password', '!users', 'profile_config', 'audio_config', 'kernels',
-					'packages', 'additional-repositories', 'network_config','firewall_config', 'timezone', 'ntp'
+					'packages', 'additional-repositories', 'network_config', 'firewall_config', 'timezone', 'ntp'
 				]
 
 				mandatory_list = ['hostname']

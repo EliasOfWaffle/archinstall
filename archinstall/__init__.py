@@ -216,9 +216,6 @@ def load_config():
 	if disk_config := arguments.get('disk_config', {}):
 		arguments['disk_config'] = disk.DiskLayoutConfiguration.parse_arg(disk_config)
 
-	if arguments.get('firewall_config', None) is not None:
-		arguments['firewall_config'] = models.FirewallConfiguration.parse_arg(arguments['firewall_config'])
-
 	if profile_config := arguments.get('profile_config', None):
 		arguments['profile_config'] = profile.ProfileConfiguration.parse_arg(profile_config)
 
@@ -242,6 +239,9 @@ def load_config():
 
 	if arguments.get('audio_config', None) is not None:
 		arguments['audio_config'] = models.AudioConfiguration.parse_arg(arguments['audio_config'])
+
+	if arguments.get('firewall_config', None) is not None:
+		arguments['firewall_config'] = models.FirewallConfiguration.parse_arg(arguments['firewall_config'])
 
 	if arguments.get('disk_encryption', None) is not None and disk_config is not None:
 		password = arguments.get('encryption_password', '')

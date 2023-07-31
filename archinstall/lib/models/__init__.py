@@ -7,4 +7,4 @@ from .bootloader import Bootloader
 from .gen import VersionDef, PackageSearchResult, PackageSearch, LocalPackage
 from .users import PasswordStrength, User
 from .audio_configuration import Audio, AudioConfiguration
-from ..models.firewall_configuration import Firewall, FirewallConfiguration
+from .firewall_configuration import Firewall, FirewallConfiguration
