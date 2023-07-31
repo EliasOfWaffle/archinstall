@@ -445,7 +445,7 @@ class GlobalMenu(AbstractMenu):
 
 	def _display_firewall(self, current: Optional[FirewallConfiguration]) -> str:
 		if not current:
-			return Firewall.no_audio_text()
+			return Firewall.no_firewall_text()
 		else:
 			return current.firewall.name
 
